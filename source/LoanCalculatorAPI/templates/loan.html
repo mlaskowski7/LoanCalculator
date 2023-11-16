@@ -1,0 +1,48 @@
+{% extends 'base/base.html' %}
+{% block content %}
+<style>
+    
+    .center-column{
+        width: 300px;
+        margin: 20px auto;
+        padding: 15px;
+        background-color: azure;
+        border-radius: 3px;
+        box-shadow: 6px 2px 30px 0px rgba(0, 0, 0, 0.75);
+    
+    }
+    .item-row{
+        background-color: #fff;
+        margin: 10px;
+        padding: 15px;
+        border-radius: 3px;
+        color: black;
+        font-size: 16px;
+        box-shadow: 0px -1px 10px -4px rgba(0,0,0,0.75);
+        text-align: center;
+    }
+    .button{
+        background-color:rgb(73, 62, 135) ;
+        color: aqua;
+        margin-top: 4px;
+        text-align: center;
+        padding: 5px;
+        border-radius: 3px;
+    }
+
+</style>
+<div class="center-column">
+    <h3>{{loan}}</h3>
+    <div class="item-row">
+        <span>Paid value: {{paid_value}} </span>
+    </div>
+    <div class="item-row">
+        <span>Monthly instalment: {{monthly_instalment}}</span>
+    </div>
+    <div class="item-row">
+        <span>Overpayment: {{overpayment}}</span>
+    </div>
+    <div class="button"><a href="{% url 'index'%}">Back</a></div>
+    
+</div>
+{% endblock %}

@@ -1,0 +1,78 @@
+{% extends 'base/base.html'%}
+{% block content %}
+<style>
+    input{
+        width: 100%;
+        padding: 12px 15px;
+        margin: 0 auto;
+        box-sizing: border-box;
+    }
+    .button{
+        background-color:rgb(73, 62, 135) ;
+        color: aqua;
+        margin-top: 4px;
+    }
+    .center-column{
+        width: 300px;
+        margin: 20px auto;
+        padding: 15px;
+        background-color: azure;
+        border-radius: 3px;
+        box-shadow: 6px 2px 30px 0px rgba(0, 0, 0, 0.75);
+
+    }
+    .item-row{
+        background-color: #fff;
+        margin: 10px;
+        padding: 15px;
+        border-radius: 3px;
+        color: aqua;
+        font-size: 16px;
+        box-shadow: 0px -1px 10px -4px rgba(0,0,0,0.75);
+        text-align: center;
+    }
+    span{
+        background-color: #fff;
+        color: rgb(73, 62, 135) ;
+        margin-left: 5px;    
+    }
+    
+    .left-column{
+        background-color: azure;
+        width: 300px;
+        margin: 0 auto 20px 10px;
+        border-radius: 3px;
+        box-shadow: 6px 2px 30px 0px rgba(0, 0, 0, 0.75);
+    }
+    h3{
+        text-align: center;
+        text-shadow: 3px;
+        color: rgb(73, 62, 135);
+    }
+</style>
+<div class="left-column">
+    <h3>Add new loan to the list</h3>
+    <form method="post">
+        {% csrf_token %}
+        {{form.title}}
+        <br>
+        {{form.value}}
+        <br>
+        {{form.lending_rate}}
+        <br>
+        {{form.months}}
+        <input class="button" type="submit" name="Create Loan" value="Submit">
+    </form>
+</div>
+<div class="center-column">
+    
+    <div>
+        {% for loan in loans %}
+            <div class="item-row">
+                <span>{{loan}}</span>
+                <span style="margin-right: 0;"><a class="button" href="{% url 'loan_description' loan.title %}" style="margin-right: 0%; padding: 5px; border-radius: 3px;">Description</a></span>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
