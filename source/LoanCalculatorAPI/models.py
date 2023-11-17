@@ -9,13 +9,13 @@ class Loan(models.Model):
     months = models.FloatField(default=12)
 
     def calculate_paid_value(self):
-        return self.value + self.value * self.lending_rate
+        return round(self.value + self.value * self.lending_rate,2)
 
     def calculate_monthly_instalment(self):
-        return self.calculate_paid_value() / self.months
+        return round(self.calculate_paid_value() / self.months,2)
 
     def calculate_overpayment(self):
-        return self.calculate_paid_value() - self.value
+        return round(self.calculate_paid_value() - self.value,2)
 
     def __str__(self):
         return self.title

@@ -29,18 +29,38 @@
         padding: 5px;
         border-radius: 3px;
     }
+    h3{
+        text-align: center;
+        background-color: azure;
+    }
+    p{
+        text-align: center;
+        background-color: azure;
+        color: rgb(73, 62, 135);
+    }
 
 </style>
 <div class="center-column">
     <h3>{{loan}}</h3>
+    <p>Entered Values</p>
     <div class="item-row">
-        <span>Paid value: {{paid_value}} </span>
+        <span>Loaned value: ${{loan.value}}</span>
     </div>
     <div class="item-row">
-        <span>Monthly instalment: {{monthly_instalment}}</span>
+        <span>Lending rate: {{loan.lending_rate}}</span>
     </div>
     <div class="item-row">
-        <span>Overpayment: {{overpayment}}</span>
+        <span>Loan duration: {{loan.months}} months</span>
+    </div>
+    <p>Calculated values</p>
+    <div class="item-row">
+        <span>Paid value: ${{paid_value}} </span>
+    </div>
+    <div class="item-row">
+        <span>Monthly instalment: ${{monthly_instalment}}</span>
+    </div>
+    <div class="item-row">
+        <span>Overpayment: ${{overpayment}}</span>
     </div>
     <div class="button"><a href="{% url 'index'%}">Back</a></div>
     

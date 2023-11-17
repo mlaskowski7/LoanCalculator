@@ -26,5 +26,5 @@ def LoanDescription(request, loan_title):
             form.save()
             return redirect('/')
         
-    context = {'loan':loan.title, 'overpayment' : loan.calculate_overpayment(), 'paid_value' : loan.calculate_paid_value(), 'monthly_instalment': loan.calculate_monthly_instalment()}
+    context = {'loan':loan, 'overpayment' : loan.calculate_overpayment(), 'paid_value' : loan.calculate_paid_value(), 'monthly_instalment': loan.calculate_monthly_instalment()}
     return render(request,"loan.html",context)
